@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.ListIterator;
@@ -32,16 +33,14 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 
 	}
 
-	/**
-	 * Draws a Circle using Ellipse2D
-	 * 
-	 * @param graphic
-	 * @param x       - x coordinate for the shape
-	 * @param y       - y coordinate for the shape
-	 */
+
 	@Override
 	public void drawShape(Graphics graphic) {
-		circle = new Ellipse2D.Double(x, y, 10, 10);
+//		circle = new Ellipse2D.Double(x, y, 10, 10);
+
+		circle = new Rectangle2D.Double(x, y, 10, 10);
+//		Graphics2D graphics2 = (Graphics2D) graphic;
+
 		Graphics2D graphics2 = (Graphics2D) graphic;
 		graphics2.fill(circle);
 
@@ -204,7 +203,11 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 		if (shape instanceof Circle) {
 			Circle circle = ((Circle) shape);
 			circle.setLineDrawn(true);
-		} else if (shape instanceof Triangle) {
+		} else if (shape instanceof OpenBracket){
+			OpenBracket openbracket = (OpenBracket) shape;
+			openbracket.setLineDrawn(true);
+		}
+		else if (shape instanceof Triangle) {
 			Triangle triangle = (Triangle) shape;
 			if (triangle.getDot1().containsPoint(x, y)) {
 				triangle.setLineDrawnDot1(true);
@@ -220,7 +223,11 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 		if (shape instanceof Circle) {
 			Circle circle = ((Circle) shape);
 			return circle.isLineDrawn();
-		} else if (shape instanceof Triangle) {
+		} else if (shape instanceof OpenBracket) {
+			OpenBracket openbracket = (OpenBracket) shape;
+			return openbracket.isLineDrawn();
+		}
+		else if (shape instanceof Triangle) {
 			Triangle triangle = (Triangle) shape;
 			if (triangle.getDot1().containsPoint(x, y)) {
 				return triangle.isLineDrawnDot1();
@@ -243,7 +250,10 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 					isDotClicked = true;
 					break;
 				}
-
+				else if (sh instanceof OpenBracket && ((OpenBracket) sh).getDot().containsPoint(e.getX(), e.getY())) {
+					isDotClicked = true;
+					break;
+				}
 				else if (sh instanceof Triangle && (((Triangle) sh).getDot1().containsPoint(e.getX(), e.getY())
 						|| ((Triangle) sh).getDot2().containsPoint(e.getX(), e.getY())
 						|| ((Triangle) sh).getDot3().containsPoint(e.getX(), e.getY()))) {
