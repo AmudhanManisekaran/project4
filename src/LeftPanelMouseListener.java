@@ -14,6 +14,15 @@ public class LeftPanelMouseListener extends MouseAdapter {
 	private static boolean isTriangleClicked = false;
 	private static boolean isSquareClicked = false;
 	private static boolean isCircleClicked = false;
+	private static boolean isOpenBracketClicked = false;
+
+	public static boolean isOpenBracketClicked() {
+		return isOpenBracketClicked;
+	}
+
+	public static void setOpenBracketClicked(boolean isOpenBracketClicked) {
+		LeftPanelMouseListener.isOpenBracketClicked = isOpenBracketClicked;
+	}
 	
 	public static boolean isTriangleClicked() {
 		return isTriangleClicked;
@@ -59,7 +68,11 @@ public class LeftPanelMouseListener extends MouseAdapter {
 				if (next.containsPoint(x, y)) {
 					markIsClickedTrue(ShapesEnum.SQUARE);
 				}
-			} else if (next instanceof Triangle) {
+			} else if (next instanceof OpenBracket) {
+				if (next.containsPoint(x, y)) {
+					markIsClickedTrue(ShapesEnum.OPENBRACKET);
+				}
+			}else if (next instanceof Triangle) {
 				if (next.containsPoint(x, y)) {
 					markIsClickedTrue(ShapesEnum.TRIANGLE);
 				}
@@ -78,16 +91,25 @@ public class LeftPanelMouseListener extends MouseAdapter {
 				setTriangleClicked(false);
 				setSquareClicked(true);
 				setCircleClicked(false);
+				setOpenBracketClicked(false);
+			}
+			if (ShapesEnum.OPENBRACKET == shape) {
+				setOpenBracketClicked(true);
+				setSquareClicked(false);
+				setCircleClicked(false);
+				setTriangleClicked(false);
 			}
 			if (ShapesEnum.TRIANGLE == shape) {
 				setTriangleClicked(true);
 				setSquareClicked(false);
 				setCircleClicked(false);
+				setOpenBracketClicked(false);
 			}
 			if (ShapesEnum.CIRCLE == shape) {
 				setTriangleClicked(false);
 				setSquareClicked(false);
 				setCircleClicked(true);
+				setOpenBracketClicked(false);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -100,6 +122,8 @@ public class LeftPanelMouseListener extends MouseAdapter {
 	public static ShapesEnum getSelectedShape() {
 		if (isSquareClicked()) {
 			return ShapesEnum.SQUARE;
+		} else if (isOpenBracketClicked()) {
+			return ShapesEnum.OPENBRACKET;
 		} else if (isTriangleClicked()) {
 			return ShapesEnum.TRIANGLE;
 		} else if (isCircleClicked()) {

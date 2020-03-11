@@ -61,6 +61,8 @@ public class RightPanelMouseListener implements MouseListener, MouseMotionListen
 			ShapesEnum selectedShape = LeftPanelMouseListener.getSelectedShape();
 			if (selectedShape == ShapesEnum.SQUARE) {
 				RightPanel.getRightPanelShapes().add(new Square(x, y));
+			} else if (selectedShape == ShapesEnum.OPENBRACKET) {
+				RightPanel.getRightPanelShapes().add(new OpenBracket(x, y));
 			} else if (selectedShape == ShapesEnum.TRIANGLE) {
 				RightPanel.getRightPanelShapes().add(new Triangle(x, y));
 			} else if (selectedShape == ShapesEnum.CIRCLE) {
