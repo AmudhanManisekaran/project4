@@ -30,15 +30,22 @@ public class LeftPanel extends JPanel {
 	 */
 	public void paintComponent(Graphics graphics) {
 		super.paintComponent(graphics);
-		Shapes square = new Square(X_COORDINATE_SHAPES, Y_COORDINATE_SQUARE);
-		square.drawShape(graphics);
-		leftPanelShapes.add(square);
+
+		Shapes openbracket = new OpenBracket(X_COORDINATE_SHAPES, Y_COORDINATE_SQUARE);
+		openbracket.drawShape(graphics);
+		leftPanelShapes.add(openbracket);
+
+//		Shapes square = new Square(X_COORDINATE_SHAPES, Y_COORDINATE_SQUARE);
+//		square.drawShape(graphics);
+//		leftPanelShapes.add(square);
 		Shapes circle = new Circle(X_COORDINATE_SHAPES, Y_COORDINATE_CIRCLE);
 		circle.drawShape(graphics);
 		leftPanelShapes.add(circle);
 		Shapes triangle = new Triangle(X_COORDINATE_SHAPES, Y_COORDINATE_TRIANGLE);
 		triangle.drawShape(graphics);
 		leftPanelShapes.add(triangle);
+
+
 		this.addMouseListener(new LeftPanelMouseListener());
 	}
 	
