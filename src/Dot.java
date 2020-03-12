@@ -202,14 +202,42 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 			CloseBracket closebracket = (CloseBracket) shape;
 			closebracket.setLineDrawn(true);
 		}
-		else if (shape instanceof Triangle) {
-			Triangle triangle = (Triangle) shape;
-			if (triangle.getDot1().containsPoint(x, y)) {
-				triangle.setLineDrawnDot1(true);
-			} else if (triangle.getDot2().containsPoint(x, y)) {
-				triangle.setLineDrawnDot2(true);
-			} else if (triangle.getDot3().containsPoint(x, y)) {
-				triangle.setLineDrawnDot3(true);
+		else if (shape instanceof LessThan) {
+			LessThan lessThan = (LessThan) shape;
+			if (lessThan.getDot1().containsPoint(x, y)) {
+				lessThan.setLineDrawnDot1(true);
+			} else if (lessThan.getDot2().containsPoint(x, y)) {
+				lessThan.setLineDrawnDot2(true);
+			} else if (lessThan.getDot3().containsPoint(x, y)) {
+				lessThan.setLineDrawnDot3(true);
+			}
+		}
+		else if (shape instanceof GreaterThan) {
+			GreaterThan greaterThan = (GreaterThan) shape;
+			if (greaterThan.getDot1().containsPoint(x, y)) {
+				greaterThan.setLineDrawnDot1(true);
+			} else if (greaterThan.getDot2().containsPoint(x, y)) {
+				greaterThan.setLineDrawnDot2(true);
+			} else if (greaterThan.getDot3().containsPoint(x, y)) {
+				greaterThan.setLineDrawnDot3(true);
+			}
+		}
+		else if (shape instanceof AtTheRate) {
+			AtTheRate atTheRate = (AtTheRate) shape;
+			if (atTheRate.getDot1().containsPoint(x, y)) {
+				atTheRate.setLineDrawnDot1(true);
+			} else if (atTheRate.getDot2().containsPoint(x, y)) {
+				atTheRate.setLineDrawnDot2(true);
+			} else if (atTheRate.getDot3().containsPoint(x, y)) {
+				atTheRate.setLineDrawnDot3(true);
+			}
+		}
+		else if (shape instanceof Hyphen) {
+			Hyphen hyphen = (Hyphen) shape;
+			if (hyphen.getDot1().containsPoint(x, y)) {
+				hyphen.setLineDrawnDot1(true);
+			} else if (hyphen.getDot2().containsPoint(x, y)) {
+				hyphen.setLineDrawnDot2(true);
 			}
 		}
 	}
@@ -222,14 +250,42 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 			CloseBracket closebracket = (CloseBracket) shape;
 			return closebracket.isLineDrawn();
 		}
-		else if (shape instanceof Triangle) {
-			Triangle triangle = (Triangle) shape;
-			if (triangle.getDot1().containsPoint(x, y)) {
-				return triangle.isLineDrawnDot1();
-			} else if (triangle.getDot2().containsPoint(x, y)) {
-				return triangle.isLineDrawnDot2();
-			} else if (triangle.getDot3().containsPoint(x, y)) {
-				return triangle.isLineDrawnDot3();
+		else if (shape instanceof LessThan) {
+			LessThan lessThan = (LessThan) shape;
+			if (lessThan.getDot1().containsPoint(x, y)) {
+				return lessThan.isLineDrawnDot1();
+			} else if (lessThan.getDot2().containsPoint(x, y)) {
+				return lessThan.isLineDrawnDot2();
+			} else if (lessThan.getDot3().containsPoint(x, y)) {
+				return lessThan.isLineDrawnDot3();
+			}
+		}
+		else if (shape instanceof GreaterThan) {
+			GreaterThan greaterThan = (GreaterThan) shape;
+			if (greaterThan.getDot1().containsPoint(x, y)) {
+				return greaterThan.isLineDrawnDot1();
+			} else if (greaterThan.getDot2().containsPoint(x, y)) {
+				return greaterThan.isLineDrawnDot2();
+			} else if (greaterThan.getDot3().containsPoint(x, y)) {
+				return greaterThan.isLineDrawnDot3();
+			}
+		}
+		else if (shape instanceof AtTheRate) {
+			AtTheRate atTheRate = (AtTheRate) shape;
+			if (atTheRate.getDot1().containsPoint(x, y)) {
+				return atTheRate.isLineDrawnDot1();
+			} else if (atTheRate.getDot2().containsPoint(x, y)) {
+				return atTheRate.isLineDrawnDot2();
+			} else if (atTheRate.getDot3().containsPoint(x, y)) {
+				return atTheRate.isLineDrawnDot3();
+			}
+		}
+		else if (shape instanceof Hyphen) {
+			Hyphen hyphen = (Hyphen) shape;
+			if (hyphen.getDot1().containsPoint(x, y)) {
+				return hyphen.isLineDrawnDot1();
+			} else if (hyphen.getDot2().containsPoint(x, y)) {
+				return hyphen.isLineDrawnDot2();
 			}
 		}
 		return false;
@@ -248,13 +304,29 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 					isDotClicked = true;
 					break;
 				}
-				else if (sh instanceof Triangle && (((Triangle) sh).getDot1().containsPoint(e.getX(), e.getY())
-						|| ((Triangle) sh).getDot2().containsPoint(e.getX(), e.getY())
-						|| ((Triangle) sh).getDot3().containsPoint(e.getX(), e.getY()))) {
+				else if (sh instanceof GreaterThan && (((GreaterThan) sh).getDot1().containsPoint(e.getX(), e.getY())
+						|| ((GreaterThan) sh).getDot2().containsPoint(e.getX(), e.getY())
+						|| ((GreaterThan) sh).getDot3().containsPoint(e.getX(), e.getY()))) {
 					isDotClicked = true;
 					break;
 				}
-
+				else if (sh instanceof LessThan && (((LessThan) sh).getDot1().containsPoint(e.getX(), e.getY())
+						|| ((LessThan) sh).getDot2().containsPoint(e.getX(), e.getY())
+						|| ((LessThan) sh).getDot3().containsPoint(e.getX(), e.getY()))) {
+					isDotClicked = true;
+					break;
+				}
+				else if (sh instanceof AtTheRate && (((AtTheRate) sh).getDot1().containsPoint(e.getX(), e.getY())
+						|| ((AtTheRate) sh).getDot2().containsPoint(e.getX(), e.getY())
+						|| ((AtTheRate) sh).getDot3().containsPoint(e.getX(), e.getY()))) {
+					isDotClicked = true;
+					break;
+				}
+				else if (sh instanceof Hyphen && (((Hyphen) sh).getDot1().containsPoint(e.getX(), e.getY())
+						|| ((Hyphen) sh).getDot2().containsPoint(e.getX(), e.getY()))) {
+					isDotClicked = true;
+					break;
+				}
 				else if (sh instanceof TwoBars && (((TwoBars) sh).getLeftBar().containsPoint(e.getX(), e.getY())
 						|| ((TwoBars) sh).getRightBar().containsPoint(e.getX(), e.getY()))) {
 					isBarClicked = true;

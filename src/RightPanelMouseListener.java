@@ -59,14 +59,20 @@ public class RightPanelMouseListener implements MouseListener, MouseMotionListen
 			int x = e.getX();
 			int y = e.getY();
 			ShapesEnum selectedShape = LeftPanelMouseListener.getSelectedShape();
-			if (selectedShape == ShapesEnum.TWOBARS) {
-				RightPanel.getRightPanelShapes().add(new TwoBars(x, y));
-			} else if (selectedShape == ShapesEnum.OPENBRACKET) {
+			if (selectedShape == ShapesEnum.OPENBRACKET) {
 				RightPanel.getRightPanelShapes().add(new OpenBracket(x, y));
 			} else if (selectedShape == ShapesEnum.CLOSEBRACKET) {
 				RightPanel.getRightPanelShapes().add(new CloseBracket(x, y));
-			} else if (selectedShape == ShapesEnum.TRIANGLE) {
-				RightPanel.getRightPanelShapes().add(new Triangle(x, y));
+			} else if (selectedShape == ShapesEnum.LESSTHAN) {
+				RightPanel.getRightPanelShapes().add(new LessThan(x, y));
+			} else if (selectedShape == ShapesEnum.GREATERTHAN) {
+				RightPanel.getRightPanelShapes().add(new GreaterThan(x, y));
+			} else if (selectedShape == ShapesEnum.ATTHERATE) {
+				RightPanel.getRightPanelShapes().add(new AtTheRate(x, y));
+			} else if (selectedShape == ShapesEnum.TWOBARS) {
+				RightPanel.getRightPanelShapes().add(new TwoBars(x, y));
+			} else if (selectedShape == ShapesEnum.HYPHEN) {
+				RightPanel.getRightPanelShapes().add(new Hyphen(x, y));
 			}
 			Frame.rightPanel.repaint();
 		}

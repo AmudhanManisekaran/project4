@@ -8,15 +8,15 @@ import java.awt.*;
  * @author Amudhan Manisekaran
  * @version 1.0
  */
-public class LessThan extends Shapes implements Serializable {
+public class Hyphen extends Shapes implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private int x, y;
     private final int OFFSET = 50;
-    private Shapes dot1 = null, dot2 = null, dot3= null;
-    private Shape lessthan = null;
-    private boolean isLineDrawnDot1 = false, isLineDrawnDot2 = false, isLineDrawnDot3 = false;
-    public LessThan(int x, int y) {
+    private Shapes dot1 = null, dot2 = null;
+    private Shape hyphen = null;
+    private boolean isLineDrawnDot1 = false, isLineDrawnDot2 = false;
+    public Hyphen(int x, int y) {
         this.x = x - OFFSET;
         this.y = y - OFFSET;
     }
@@ -24,27 +24,26 @@ public class LessThan extends Shapes implements Serializable {
     @Override
     public void drawShape(Graphics graphic) {
 
-        lessthan = new Rectangle2D.Double(x, y, 200, 100);
+        hyphen = new Rectangle2D.Double(x, y, 200, 100);
         Graphics2D g2 = (Graphics2D) graphic;
         dot1 = new Dot(x, y);
         dot1 = new Dot(x + 30, y + 50);
         dot1.drawShape(g2);
-        dot2 = new Dot(x + 165, y + 20);
+        dot2 = new Dot(x + 165, y + 100 - 50);
         dot2.drawShape(g2);
-        dot3 = new Dot(x + 165, y + 80);
-        dot3.drawShape(g2);
 
         Font font = new Font("Serif", Font.PLAIN, 40);
         g2.setFont(font);
-        g2.drawString("<", x + 95, y + 65);
+        g2.drawString("-", x + 95, y + 65);
 
-        g2.draw(lessthan);
+        g2.draw(hyphen);
+
 
     }
 
     @Override
     public boolean containsPoint(int x, int y) {
-        return lessthan.contains(x, y);
+        return hyphen.contains(x, y);
     }
     @Override
     public int getX() {
@@ -74,12 +73,7 @@ public class LessThan extends Shapes implements Serializable {
     public void setDot2(Shapes dot2) {
         this.dot2 = dot2;
     }
-    public Shapes getDot3() {
-        return dot3;
-    }
-    public void setDot3(Shapes dot3) {
-        this.dot3 = dot3;
-    }
+
     public boolean isLineDrawnDot1() {
         return isLineDrawnDot1;
     }
@@ -92,11 +86,6 @@ public class LessThan extends Shapes implements Serializable {
     public void setLineDrawnDot2(boolean isLineDrawnDot2) {
         this.isLineDrawnDot2 = isLineDrawnDot2;
     }
-    public boolean isLineDrawnDot3() {
-        return isLineDrawnDot3;
-    }
-    public void setLineDrawnDot3(boolean isLineDrawnDot3) {
-        this.isLineDrawnDot3 = isLineDrawnDot3;
-    }
+
 
 }

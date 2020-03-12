@@ -8,15 +8,15 @@ import java.awt.*;
  * @author Amudhan Manisekaran
  * @version 1.0
  */
-public class LessThan extends Shapes implements Serializable {
+public class AtTheRate extends Shapes implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private int x, y;
     private final int OFFSET = 50;
     private Shapes dot1 = null, dot2 = null, dot3= null;
-    private Shape lessthan = null;
+    private Shape attherate = null;
     private boolean isLineDrawnDot1 = false, isLineDrawnDot2 = false, isLineDrawnDot3 = false;
-    public LessThan(int x, int y) {
+    public AtTheRate(int x, int y) {
         this.x = x - OFFSET;
         this.y = y - OFFSET;
     }
@@ -24,7 +24,7 @@ public class LessThan extends Shapes implements Serializable {
     @Override
     public void drawShape(Graphics graphic) {
 
-        lessthan = new Rectangle2D.Double(x, y, 200, 100);
+        attherate = new Rectangle2D.Double(x, y, 200, 100);
         Graphics2D g2 = (Graphics2D) graphic;
         dot1 = new Dot(x, y);
         dot1 = new Dot(x + 30, y + 50);
@@ -36,15 +36,16 @@ public class LessThan extends Shapes implements Serializable {
 
         Font font = new Font("Serif", Font.PLAIN, 40);
         g2.setFont(font);
-        g2.drawString("<", x + 95, y + 65);
+        g2.drawString("@", x + 80, y + 65);
 
-        g2.draw(lessthan);
+        g2.draw(attherate);
+
 
     }
 
     @Override
     public boolean containsPoint(int x, int y) {
-        return lessthan.contains(x, y);
+        return attherate.contains(x, y);
     }
     @Override
     public int getX() {
