@@ -4,7 +4,7 @@
  */
 public enum ShapesEnum {
 	TRIANGLE,
-	SQUARE,
-	CIRCLE,
-	OPENBRACKET
+	TWOBARS,
+	OPENBRACKET,
+	CLOSEBRACKET
 }

@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 public class VerticalBar extends Shapes implements MouseListener, MouseMotionListener, Serializable {
 	private static final long serialVersionUID = 1L;
-	private Shape square = null;
+	private Shape twobars = null;
 	private double x, y;
 
 	public VerticalBar(double x, double y) {
@@ -21,18 +21,11 @@ public class VerticalBar extends Shapes implements MouseListener, MouseMotionLis
 		this.y = y;
 	}
 
-	/**
-	 * Draws a square using Rectangle2D
-	 * 
-	 * @param graphic
-	 * @param x       - x coordinate for the shape
-	 * @param y       - y coordinate for the shape
-	 */
 	@Override
 	public void drawShape(Graphics graphic) {
-		square = new Rectangle2D.Double(x, y, 7, 180);
+		twobars = new Rectangle2D.Double(x, y, 7, 80);
 		Graphics2D graphics2 = (Graphics2D) graphic;
-		graphics2.fill(square);
+		graphics2.fill(twobars);
 
 	}
 
@@ -44,7 +37,7 @@ public class VerticalBar extends Shapes implements MouseListener, MouseMotionLis
 	 */
 	@Override
 	public boolean containsPoint(int x, int y) {
-		return square.contains(x, y);
+		return twobars.contains(x, y);
 	}
 
 	@Override

@@ -7,15 +7,13 @@ import javax.swing.JFrame;
 /**
  * Creates a Frame and adds two JPanels two the frame.
  * 
- * @author Chandan Kiragadalu Javaregowda
+ * @author
  * @version 1.0
- * 
- * @author Raghavan
- * @version 2.0
+
  */
 public class Frame extends JFrame {
 	private static final long serialVersionUID = 1L;
-	private final String TITLE = "Team 1";
+	private final String TITLE = "Project 4 - Team 8";
 	protected static RightPanel rightPanel;
 	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 

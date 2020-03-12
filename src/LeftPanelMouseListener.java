@@ -12,9 +12,9 @@ import java.util.ListIterator;
 public class LeftPanelMouseListener extends MouseAdapter {
 	
 	private static boolean isTriangleClicked = false;
-	private static boolean isSquareClicked = false;
-	private static boolean isCircleClicked = false;
 	private static boolean isOpenBracketClicked = false;
+	private static boolean isCloseBracketClicked = false;
+	private static boolean isTwoBarsClicked = false;
 
 	public static boolean isOpenBracketClicked() {
 		return isOpenBracketClicked;
@@ -22,6 +22,14 @@ public class LeftPanelMouseListener extends MouseAdapter {
 
 	public static void setOpenBracketClicked(boolean isOpenBracketClicked) {
 		LeftPanelMouseListener.isOpenBracketClicked = isOpenBracketClicked;
+	}
+
+	public static boolean isCloseBracketClicked() {
+		return isCloseBracketClicked;
+	}
+
+	public static void setCloseBracketClicked(boolean isCloseBracketClicked) {
+		LeftPanelMouseListener.isCloseBracketClicked = isCloseBracketClicked;
 	}
 	
 	public static boolean isTriangleClicked() {
@@ -32,22 +40,14 @@ public class LeftPanelMouseListener extends MouseAdapter {
 		LeftPanelMouseListener.isTriangleClicked = isTriangleClicked;
 	}
 
-	public static boolean isSquareClicked() {
-		return isSquareClicked;
+	public static boolean isTwoBarsClicked() {
+		return isTwoBarsClicked;
 	}
 
-	public static void setSquareClicked(boolean isSquareClicked) {
-		LeftPanelMouseListener.isSquareClicked = isSquareClicked;
+	public static void setTwoBarsClicked(boolean isTwoBarsClicked) {
+		LeftPanelMouseListener.isTwoBarsClicked = isTwoBarsClicked;
 	}
 
-	public static boolean isCircleClicked() {
-		return isCircleClicked;
-	}
-
-	public static void setCircleClicked(boolean isCircleClicked) {
-		LeftPanelMouseListener.isCircleClicked = isCircleClicked;
-	}
-	
 	/**
 	 * Overridden method to add mouse click event handler.
 	 * Used to track which shape has been clicked on the left panel,
@@ -60,17 +60,17 @@ public class LeftPanelMouseListener extends MouseAdapter {
 		ListIterator<Shapes> iterator = LeftPanel.leftPanelShapes.listIterator();
 		while(iterator.hasNext()) {
 			Shapes next = iterator.next();
-			if (next instanceof Circle) {
+			if (next instanceof TwoBars) {
 				if (next.containsPoint(x, y)) {
-					markIsClickedTrue(ShapesEnum.CIRCLE);
-				}
-			} else if (next instanceof Square) {
-				if (next.containsPoint(x, y)) {
-					markIsClickedTrue(ShapesEnum.SQUARE);
+					markIsClickedTrue(ShapesEnum.TWOBARS);
 				}
 			} else if (next instanceof OpenBracket) {
 				if (next.containsPoint(x, y)) {
 					markIsClickedTrue(ShapesEnum.OPENBRACKET);
+				}
+			} else if (next instanceof CloseBracket) {
+				if (next.containsPoint(x, y)) {
+					markIsClickedTrue(ShapesEnum.CLOSEBRACKET);
 				}
 			}else if (next instanceof Triangle) {
 				if (next.containsPoint(x, y)) {
@@ -87,29 +87,29 @@ public class LeftPanelMouseListener extends MouseAdapter {
 	 */
 	public static void markIsClickedTrue(ShapesEnum shape) {
 		try {
-			if (ShapesEnum.SQUARE == shape) {
+			if (ShapesEnum.TWOBARS == shape) {
 				setTriangleClicked(false);
-				setSquareClicked(true);
-				setCircleClicked(false);
+				setTwoBarsClicked(true);
 				setOpenBracketClicked(false);
+				setCloseBracketClicked(false);
 			}
 			if (ShapesEnum.OPENBRACKET == shape) {
 				setOpenBracketClicked(true);
-				setSquareClicked(false);
-				setCircleClicked(false);
+				setTwoBarsClicked(false);
+				setTriangleClicked(false);
+				setCloseBracketClicked(false);
+			}
+			if (ShapesEnum.CLOSEBRACKET == shape) {
+				setOpenBracketClicked(false);
+				setCloseBracketClicked(true);
+				setTwoBarsClicked(false);
 				setTriangleClicked(false);
 			}
 			if (ShapesEnum.TRIANGLE == shape) {
 				setTriangleClicked(true);
-				setSquareClicked(false);
-				setCircleClicked(false);
+				setTwoBarsClicked(false);
 				setOpenBracketClicked(false);
-			}
-			if (ShapesEnum.CIRCLE == shape) {
-				setTriangleClicked(false);
-				setSquareClicked(false);
-				setCircleClicked(true);
-				setOpenBracketClicked(false);
+				setCloseBracketClicked(false);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -120,14 +120,14 @@ public class LeftPanelMouseListener extends MouseAdapter {
 	 * returns the shape that is clicked.
 	 */
 	public static ShapesEnum getSelectedShape() {
-		if (isSquareClicked()) {
-			return ShapesEnum.SQUARE;
+		if (isTwoBarsClicked()) {
+			return ShapesEnum.TWOBARS;
 		} else if (isOpenBracketClicked()) {
 			return ShapesEnum.OPENBRACKET;
 		} else if (isTriangleClicked()) {
 			return ShapesEnum.TRIANGLE;
-		} else if (isCircleClicked()) {
-			return ShapesEnum.CIRCLE;
+		} else if (isCloseBracketClicked()) {
+			return ShapesEnum.CLOSEBRACKET;
 		} else {
 			return null;
 		}

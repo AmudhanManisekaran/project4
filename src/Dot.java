@@ -12,13 +12,13 @@ import java.util.Iterator;
 import java.util.ListIterator;
 
 /**
- * @author Raghavan
+ * @author Amudhan Manisekaran
  * @version 1.0
  */
 public class Dot extends Shapes implements MouseListener, MouseMotionListener, Serializable {
 	private static final long serialVersionUID = 1L;
 	private double x, y;
-	private Shape circle = null;
+	private Shape square = null;
 	private int sourceX, sourceY, destinationX, destinationY;
 	private boolean firstDotClicked = false;
 	private Shapes firstShape, secondShape;
@@ -33,21 +33,15 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 
 	}
 
-
 	@Override
 	public void drawShape(Graphics graphic) {
-//		circle = new Ellipse2D.Double(x, y, 10, 10);
-
-		circle = new Rectangle2D.Double(x, y, 10, 10);
-//		Graphics2D graphics2 = (Graphics2D) graphic;
-
+		square = new Rectangle2D.Double(x, y, 10, 10);
 		Graphics2D graphics2 = (Graphics2D) graphic;
-		graphics2.fill(circle);
-
+		graphics2.fill(square);
 	}
 
 	public boolean containsPoint(int x, int y) {
-		return circle.contains(x, y);
+		return square.contains(x, y);
 	}
 
 	@Override
@@ -200,12 +194,13 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 	}
 
 	private void setIsLineDrawn(Shapes shape, int x, int y) {
-		if (shape instanceof Circle) {
-			Circle circle = ((Circle) shape);
-			circle.setLineDrawn(true);
-		} else if (shape instanceof OpenBracket){
+		if (shape instanceof OpenBracket){
 			OpenBracket openbracket = (OpenBracket) shape;
 			openbracket.setLineDrawn(true);
+		}
+		else if (shape instanceof CloseBracket){
+			CloseBracket closebracket = (CloseBracket) shape;
+			closebracket.setLineDrawn(true);
 		}
 		else if (shape instanceof Triangle) {
 			Triangle triangle = (Triangle) shape;
@@ -220,12 +215,12 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 	}
 
 	private boolean getIsLineDrawn(Shapes shape, int x, int y) {
-		if (shape instanceof Circle) {
-			Circle circle = ((Circle) shape);
-			return circle.isLineDrawn();
-		} else if (shape instanceof OpenBracket) {
+		if (shape instanceof OpenBracket) {
 			OpenBracket openbracket = (OpenBracket) shape;
 			return openbracket.isLineDrawn();
+		} else if (shape instanceof CloseBracket) {
+			CloseBracket closebracket = (CloseBracket) shape;
+			return closebracket.isLineDrawn();
 		}
 		else if (shape instanceof Triangle) {
 			Triangle triangle = (Triangle) shape;
@@ -246,11 +241,10 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 		while (shapes.hasNext()) {
 			Shapes sh = shapes.next();
 			if (sh.containsPoint(e.getX(), e.getY())) {
-				if (sh instanceof Circle && ((Circle) sh).getDot().containsPoint(e.getX(), e.getY())) {
+				if (sh instanceof OpenBracket && ((OpenBracket) sh).getDot().containsPoint(e.getX(), e.getY())) {
 					isDotClicked = true;
 					break;
-				}
-				else if (sh instanceof OpenBracket && ((OpenBracket) sh).getDot().containsPoint(e.getX(), e.getY())) {
+				} else if (sh instanceof CloseBracket && ((CloseBracket) sh).getDot().containsPoint(e.getX(), e.getY())) {
 					isDotClicked = true;
 					break;
 				}
@@ -261,8 +255,8 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 					break;
 				}
 
-				else if (sh instanceof Square && (((Square) sh).getLeftBar().containsPoint(e.getX(), e.getY())
-						|| ((Square) sh).getRightBar().containsPoint(e.getX(), e.getY()))) {
+				else if (sh instanceof TwoBars && (((TwoBars) sh).getLeftBar().containsPoint(e.getX(), e.getY())
+						|| ((TwoBars) sh).getRightBar().containsPoint(e.getX(), e.getY()))) {
 					isBarClicked = true;
 					break;
 				}
