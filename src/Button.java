@@ -25,7 +25,7 @@ public class Button {
         closeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                closeButton.setName("closeBracketButton");
+                closeButton.setName("closeButton");
                 closeButton.setText("close bracket clicked");
                 resetButtonClicked(closeButton);
             }
@@ -97,7 +97,7 @@ public class Button {
     }
     private  void resetButtonClicked(JButton button){
         System.out.println(button.getName() + " clicked by the user!!!");
-        if(button.getName()=="openBracketButton"){
+        if(button.getName()=="openButton"){
             LeftPanelMouseListener.setOpenBracketClicked(Boolean.TRUE);
             LeftPanelMouseListener.setCloseBracketClicked(Boolean.FALSE);
             LeftPanelMouseListener.setLessThanClicked(Boolean.FALSE);
@@ -105,7 +105,7 @@ public class Button {
             LeftPanelMouseListener.setAtTheRateClicked(Boolean.FALSE);
             LeftPanelMouseListener.setTwoBarsClicked(Boolean.FALSE);
             LeftPanelMouseListener.setHyphenClicked(Boolean.FALSE);
-        }else if(button.getName()=="closeBracketButton") {
+        }else if(button.getName()=="closeButton") {
             LeftPanelMouseListener.setCloseBracketClicked(Boolean.TRUE);
             LeftPanelMouseListener.setOpenBracketClicked(Boolean.FALSE);
             LeftPanelMouseListener.setLessThanClicked(Boolean.FALSE);
@@ -113,7 +113,7 @@ public class Button {
             LeftPanelMouseListener.setAtTheRateClicked(Boolean.FALSE);
             LeftPanelMouseListener.setTwoBarsClicked(Boolean.FALSE);
             LeftPanelMouseListener.setHyphenClicked(Boolean.FALSE);
-        }else if(button.getName()=="LessThanButton"){
+        }else if(button.getName()=="lessThanButton"){
             LeftPanelMouseListener.setLessThanClicked(Boolean.TRUE);
             LeftPanelMouseListener.setCloseBracketClicked(Boolean.FALSE);
             LeftPanelMouseListener.setOpenBracketClicked(Boolean.FALSE);
