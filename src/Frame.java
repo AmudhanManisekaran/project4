@@ -31,6 +31,9 @@ public class Frame extends JFrame {
 	private void createLeftPanel() {
 		try {
 			LeftPanel leftPanel = new LeftPanel();
+			Button button = new Button();
+
+			button.addButtonsToLeftPanel(leftPanel);
 			leftPanel.setBounds(0, 0, screenSize.width / 4, screenSize.height);
 			leftPanel.setVisible(true);
 			this.add(leftPanel);
