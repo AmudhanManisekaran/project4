@@ -1,6 +1,13 @@
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 /**
  * Adds a Menu bar with Load and Save options.
@@ -12,6 +19,7 @@ public class MenuBar extends JMenuBar {
 
 	private static final long serialVersionUID = 1L;
 	private JMenu menu;
+	private JMenuBar menuBar;
 	private JMenuItem load, save;
 	private final String SAVE = "Save";
 	private final String LOAD = "Load";
@@ -19,6 +27,7 @@ public class MenuBar extends JMenuBar {
 	
 	MenuBar() {
 		menu = new JMenu(MENU);
+		menuBar = new JMenuBar();
 		SaveFile saveFile = new SaveFile(SAVE);
 		save = saveFile;
 		save.addActionListener(saveFile);
@@ -27,7 +36,29 @@ public class MenuBar extends JMenuBar {
 		load.addActionListener(loadFile);
 		menu.add(save);
 		menu.add(load);
-		this.add(menu);
+		menuBar.add(menu);
+		
+		JButton NewTab = new JButton("  New Tab  ");
+		Border border = new LineBorder(Color.BLACK, 1);
+		NewTab.setBorder(border);
+		NewTab.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				//TO DO: write action to create new tab
+				if (e.getActionCommand().equals("  New Tab  ")) {
+				      System.out.println("New Tab has been clicked");
+				    }
+			}
+		});
+		menuBar.add(NewTab);
+		JButton Compiler = new JButton("  Compile  ");
+		Compiler.setBorder(border);
+		Compiler.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				//TO DO: write action to compile
+			}
+		});
+		menuBar.add(Compiler);
+		this.add(menuBar);
 	}
 
 }
