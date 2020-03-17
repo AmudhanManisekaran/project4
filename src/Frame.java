@@ -34,7 +34,7 @@ public class Frame extends JFrame {
 			Button button = new Button();
 
 			button.addButtonsToLeftPanel(leftPanel);
-			leftPanel.setBounds(0, 0, screenSize.width / 4, screenSize.height);
+			leftPanel.setBounds(0, 0, screenSize.width / 6, screenSize.height);
 			leftPanel.setVisible(true);
 			this.add(leftPanel);
 
@@ -49,7 +49,7 @@ public class Frame extends JFrame {
 	private void createRightpanel() {
 		try {
 			rightPanel = new RightPanel();
-			rightPanel.setBounds(screenSize.width / 4, 0, 3 * screenSize.width / 4, screenSize.height);
+			rightPanel.setBounds(screenSize.width / 6, 0, 4 * screenSize.width / 4, screenSize.height);
 			rightPanel.setVisible(true);
 			this.add(rightPanel);
 

@@ -27,11 +27,12 @@ public class GreaterThan extends Shapes implements Serializable {
         greaterthan = new Rectangle2D.Double(x, y, 200, 100);
         Graphics2D g2 = (Graphics2D) graphic;
         dot1 = new Dot(x, y);
-        dot1 = new Dot(x + 30, y + 50);
+        dot1 = new Dot(x + 30, y + 75);
+//        dot1 = new Dot(x + 30, y + 50);
         dot1.drawShape(g2);
-        dot2 = new Dot(x + 165, y + 20);
+        dot2 = new Dot(x + 30, y + 20);
         dot2.drawShape(g2);
-        dot3 = new Dot(x + 165, y + 80);
+        dot3 = new Dot(x + 165, y + 50);
         dot3.drawShape(g2);
 
         Font font = new Font("Serif", Font.PLAIN, 40);

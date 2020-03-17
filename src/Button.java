@@ -7,86 +7,94 @@ import java.io.File;
 public class Button {
     public void addButtonsToLeftPanel(LeftPanel panel){
 
-        JButton openButton = new JButton("b1",new ImageIcon("src/ImageFiles/openBracket.png"));
-        openButton.setPreferredSize(new Dimension(230,100));
 
+        JButton openButton = new JButton(new ImageIcon("src/ImageFiles/openbracket.jpg"));
+        openButton.setPreferredSize(new Dimension(200,100));
+        openButton.setFont(new Font("Arial", Font.PLAIN, 30));
         openButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 openButton.setName("openButton");
-                openButton.setText("open bracket clicked");
+//                openButton.setText("open bracket clicked");
                 resetButtonClicked(openButton);
             }
         });
         panel.add(openButton);
 
-        JButton closeButton = new JButton("b2",new ImageIcon(""));
-        closeButton.setPreferredSize(new Dimension(230,100));
+        JButton closeButton = new JButton(new ImageIcon("src/ImageFiles/closebracket.jpg"));
+        closeButton.setPreferredSize(new Dimension(200,100));
+        closeButton.setFont(new Font("Arial", Font.PLAIN, 30));
         closeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 closeButton.setName("closeButton");
-                closeButton.setText("close bracket clicked");
+//                closeButton.setText("close bracket clicked");
                 resetButtonClicked(closeButton);
             }
         });
         panel.add(closeButton);
 
-        JButton lessThanButton = new JButton("r2",new ImageIcon(""));
-        lessThanButton.setPreferredSize(new Dimension(230,100));
+        JButton lessThanButton = new JButton(new ImageIcon("src/ImageFiles/lessthan.jpg"));
+        lessThanButton.setPreferredSize(new Dimension(200,100));
+        lessThanButton.setFont(new Font("Arial", Font.PLAIN, 30));
         lessThanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 lessThanButton.setName("lessThanButton");
-                lessThanButton.setText("lessThanButton");
+//                lessThanButton.setText("lessThanButton");
                 resetButtonClicked(lessThanButton);
             }
         });
         panel.add(lessThanButton);
 
-        JButton greaterThanButton = new JButton("r2",new ImageIcon(""));
-        greaterThanButton.setPreferredSize(new Dimension(230,100));
+        JButton greaterThanButton = new JButton(new ImageIcon("src/ImageFiles/greaterthan.jpg"));
+        greaterThanButton.setPreferredSize(new Dimension(200,100));
+        greaterThanButton.setFont(new Font("Arial", Font.PLAIN, 30));
         greaterThanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 greaterThanButton.setName("greaterThanButton");
-                greaterThanButton.setText("greaterThanButton");
+//                greaterThanButton.setText("greaterThanButton");
                 resetButtonClicked(greaterThanButton);
             }
         });
         panel.add(greaterThanButton);
 
-        JButton atTheRateButton = new JButton("r2",new ImageIcon(""));
-        atTheRateButton.setPreferredSize(new Dimension(230,100));
+//        JButton atTheRateButton = new JButton("@",new ImageIcon("src/ImageFiles/attherate.jpg"));
+        JButton atTheRateButton = new JButton(new ImageIcon("src/ImageFiles/attherate.jpg"));
+        atTheRateButton.setPreferredSize(new Dimension(200,100));
+        atTheRateButton.setFont(new Font("Arial", Font.PLAIN, 30));
         atTheRateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 atTheRateButton.setName("atTheRateButton");
-                atTheRateButton.setText("atTheRateButton");
+//                atTheRateButton.setText("atTheRateButton");
                 resetButtonClicked(atTheRateButton);
             }
         });
         panel.add(atTheRateButton);
 
-        JButton twoBarButton = new JButton("r2",new ImageIcon(""));
-        twoBarButton.setPreferredSize(new Dimension(230,100));
+        JButton twoBarButton = new JButton(new ImageIcon("src/ImageFiles/twobars.jpg"));
+        twoBarButton.setPreferredSize(new Dimension(200,100));
+        twoBarButton.setFont(new Font("Arial", Font.PLAIN, 30));
         twoBarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 twoBarButton.setName("twoBarButton");
-                twoBarButton.setText("twoBarButton");
+//                twoBarButton.setText("twoBarButton");
                 resetButtonClicked(twoBarButton);
             }
         });
         panel.add(twoBarButton);
 
-        JButton hypenButton = new JButton("r2",new ImageIcon(""));
-        hypenButton.setPreferredSize(new Dimension(230,100));
+        JButton hypenButton = new JButton(new ImageIcon("src/ImageFiles/hyphen.jpg"));
+        hypenButton.setPreferredSize(new Dimension(200,100));
+        hypenButton.setFont(new Font("Arial", Font.PLAIN, 30));
         hypenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 hypenButton.setName("hypenButton");
-                hypenButton.setText("hypenButton");
+//                hypenButton.setText("hypenButton");
                 resetButtonClicked(hypenButton);
             }
         });
