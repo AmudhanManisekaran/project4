@@ -9,12 +9,6 @@ import javax.swing.JMenuItem;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-/**
- * Adds a Menu bar with Load and Save options.
- * 
- * @author Parikshith Kedilaya Mallar
- * @version 1.0
- */
 public class MenuBar extends JMenuBar {
 
 	private static final long serialVersionUID = 1L;
@@ -37,7 +31,7 @@ public class MenuBar extends JMenuBar {
 		menu.add(save);
 		menu.add(load);
 		menuBar.add(menu);
-		
+
 		JButton NewTab = new JButton("  New Tab  ");
 		Border border = new LineBorder(Color.BLACK, 1);
 		NewTab.setBorder(border);

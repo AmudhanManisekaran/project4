@@ -8,12 +8,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-/**
- * Adding Load file functionality to load the saved file into the application
- * 
- * @author Chandan Kiragadalu Javaregowda
- * @version 1.0
- */
 public class LoadFile extends JMenuItem implements ActionListener {
 
 	private static final long serialVersionUID = 1L;

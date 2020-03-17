@@ -1,10 +1,3 @@
-
-/**
- * Model Class to store details about lines
- * 
- * @author Parikshith Kedilaya Mallar
- * @version 1.0
- */
 public class Line {
 	private int shapeX, shapeY, lineX, lineY;
 	private Connections line;

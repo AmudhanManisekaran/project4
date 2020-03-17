@@ -7,10 +7,6 @@ import java.awt.event.MouseMotionListener;
 import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
 
-/**
- * @author Raghavan
- * @version 1.0
- */
 public class VerticalBar extends Shapes implements MouseListener, MouseMotionListener, Serializable {
 	private static final long serialVersionUID = 1L;
 	private Shape twobars = null;
@@ -29,12 +25,6 @@ public class VerticalBar extends Shapes implements MouseListener, MouseMotionLis
 
 	}
 
-	/**
-	 * Method to check if a point is inside the vertical bar
-	 * 
-	 * @param x - x coordinate of the point
-	 * @param y - y coordinate of the point
-	 */
 	@Override
 	public boolean containsPoint(int x, int y) {
 		return twobars.contains(x, y);

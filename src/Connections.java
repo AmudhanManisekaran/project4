@@ -1,13 +1,5 @@
 import java.io.Serializable;
 
-/**
- * This class has line information that requires source and destination end
- * point
- * 
- * @author Mayank Kataruka
- * @version 1.0
- */
-
 public class Connections implements Serializable {
 
 	private static final long serialVersionUID = 1L;

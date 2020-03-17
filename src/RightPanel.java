@@ -7,17 +7,6 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-/**
- * This class creates selected shape on the right panel with the help of x and y
- * coordinates and maintains all the connection that are present in the right
- * panel.
- * 
- * @author Raghavan
- * @version 1.0
- * 
- * @author Raghavan
- * @version 2.0
- */
 public class RightPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private static List<Shapes> rightPanelShapes = new ArrayList<Shapes>();

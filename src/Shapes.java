@@ -1,9 +1,5 @@
 import java.awt.Graphics;
 
-/**
- *  @author Raghavan
- *  @version 1.0
- */
 public abstract class Shapes {
 	
 	public abstract void drawShape(Graphics graphic);

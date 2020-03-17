@@ -5,24 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
-/**
- * This class adds mouse listener for the shapes, dots and vertical bars in the
- * right panel.
- * 
- * @author Parikshit
- * @version 1.0
- */
+
 public class RightPanelMouseListener implements MouseListener, MouseMotionListener {
 
 	private Shapes selectedShape;
 	private List<Line> linesList = new ArrayList<Line>();
 
-	/**
-	 * Change the coordinates of the connection line when a shape on the right panel
-	 * is moved to a different point.
-	 * 
-	 * @param e - MouseEvent
-	 */
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		if (selectedShape != null) {
@@ -48,11 +36,6 @@ public class RightPanelMouseListener implements MouseListener, MouseMotionListen
 	public void mouseMoved(MouseEvent e) {
 	}
 
-	/**
-	 * Check a click event if the click is on a dot or vertical bar
-	 * 
-	 * @param e - MouseEvent
-	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (!Dot.isDotClicked && !RightPanel.isMoved() && !Dot.isBarClicked) {
@@ -78,12 +61,6 @@ public class RightPanelMouseListener implements MouseListener, MouseMotionListen
 		}
 	}
 
-	/**
-	 * Method to move the shapes when the mouse is pressed while dragging in the
-	 * shape.
-	 * 
-	 * @param e - MouseEvent
-	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		ListIterator<Shapes> shapes = RightPanel.getRightPanelShapes().listIterator();
@@ -120,11 +97,6 @@ public class RightPanelMouseListener implements MouseListener, MouseMotionListen
 
 	}
 
-	/**
-	 * Reset the selectedShape when mouse is released.
-	 * 
-	 * @param e - MouseEvent
-	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		selectedShape = null;

@@ -8,6 +8,7 @@ import java.awt.*;
  * @author Amudhan Manisekaran
  * @version 1.0
  */
+
 public class AtTheRate extends Shapes implements Serializable {
 
     private static final long serialVersionUID = 1L;
