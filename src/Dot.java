@@ -23,6 +23,7 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 	private boolean firstDotClicked = false;
 	private Shapes firstShape, secondShape;
 	protected static boolean isBarClicked = false, isDotClicked = false;
+	CompileFile compileFile = new CompileFile();
 
 	public Dot(double x, double y) {
 		this.x = x;
@@ -66,6 +67,8 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+
+		CompileFile.setTrackShapes(RightPanel.getRightPanelShapes(),1);
 
 		if ( !RightPanel.isSelected() && isDotClicked ) {
 			Iterator<Shapes> shapeIterator = RightPanel.getRightPanelShapes().iterator();
@@ -113,6 +116,7 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 
 		else if (RightPanel.isSelected() && isDotClicked) {
 
+			System.out.print("Size as of now " + CompileFile.trackShapes.size());
 			if (!RightPanel.getOriginShape().containsPoint(e.getX(), e.getY())) {
 				Iterator<Shapes> shapeIterator = RightPanel.getRightPanelShapes().iterator();
 				while (shapeIterator.hasNext()) {
@@ -138,6 +142,16 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 						Cursor cursor = new Cursor(Cursor.DEFAULT_CURSOR);
 						Frame.rightPanel.setCursor(cursor);
 						Frame.rightPanel.setVisible(true);
+						//populate compile shape Hashmap
+						updateHashMap(firstShape,secondShape);
+
+						if(CompileFile.trackShapes.containsKey(firstShape))
+							CompileFile.removeConnectedShapesFromMap(firstShape);
+
+						if(CompileFile.trackShapes.containsKey(secondShape))
+							CompileFile.removeConnectedShapesFromMap(secondShape);
+
+						System.out.print("Size after joining" + CompileFile.trackShapes.size());
 						RightPanel.setSelected(false);
 						break;
 					}
@@ -371,6 +385,27 @@ public class Dot extends Shapes implements MouseListener, MouseMotionListener, S
 			RightPanel.setDestinationY(e.getY());
 			Frame.rightPanel.repaint();
 		}
+
+	}
+
+	public void updateHashMap(Shapes firstShape, Shapes secondShape){
+	//Makes note of the shapes connected to one another
+		if(firstShape.toString().contains("OpenBracket"))
+			compileFile.push('(',1);
+		if(firstShape.toString().contains("LessThan"))
+			compileFile.push('<',1);
+		if(firstShape.toString().contains("CloseBracket"))
+			compileFile.push(')',1);
+		if(firstShape.toString().contains("GreaterThan"))
+			compileFile.push('>',1);
+		if(secondShape.toString().contains("CloseBracket"))
+			compileFile.push(')',1);
+		if(secondShape.toString().contains("GreaterThan"))
+			compileFile.push('>',1);
+		if(secondShape.toString().contains("OpenBracket"))
+			compileFile.push('(',1);
+		if(secondShape.toString().contains("LessThan"))
+			compileFile.push('<',1);
 
 	}
 

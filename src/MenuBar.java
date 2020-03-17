@@ -12,11 +12,11 @@ public class MenuBar extends JMenuBar {
 
 	private static final long serialVersionUID = 1L;
 	private JMenu menu;
-	private JMenuItem load, save;
+	private JMenuItem load, save, compile;
 	private final String SAVE = "Save";
 	private final String LOAD = "Load";
 	private final String MENU = "Menu";
-	
+	private final String COMPILE = "compile";
 	MenuBar() {
 		menu = new JMenu(MENU);
 		SaveFile saveFile = new SaveFile(SAVE);
@@ -25,8 +25,12 @@ public class MenuBar extends JMenuBar {
 		LoadFile loadFile = new LoadFile(LOAD);
 		load = loadFile;
 		load.addActionListener(loadFile);
+		CompileFile compileFile = new CompileFile(COMPILE);
+		compile=compileFile;
+		compile.addActionListener(compileFile);
 		menu.add(save);
 		menu.add(load);
+		menu.add(compile);
 		this.add(menu);
 	}
 

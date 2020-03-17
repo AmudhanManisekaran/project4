@@ -15,6 +15,9 @@ public class OpenBracket extends Shapes implements Serializable {
     private Shape openbracket = null;
     private Shapes dot = null;
     private boolean isLineDrawn = false;
+    public OpenBracket(){
+
+    }
 
     public OpenBracket(int x, int y) {
         this.x = x - OFFSET;

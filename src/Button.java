@@ -7,7 +7,7 @@ import java.io.File;
 public class Button {
     public void addButtonsToLeftPanel(LeftPanel panel){
 
-        JButton openButton = new JButton("b1",new ImageIcon(""));
+        JButton openButton = new JButton("b1",new ImageIcon("src/ImageFiles/openBracket.png"));
         openButton.setPreferredSize(new Dimension(230,100));
 
         openButton.addActionListener(new ActionListener() {

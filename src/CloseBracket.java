@@ -15,6 +15,9 @@ public class CloseBracket extends Shapes implements Serializable {
     private Shape closebracket = null;
     private Shapes dot = null;
     private boolean isLineDrawn = false;
+    public CloseBracket(){
+
+    }
 
 //    public CloseBracket(double x, double y) {
     public CloseBracket(int x, int y) {

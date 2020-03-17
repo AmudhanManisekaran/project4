@@ -128,6 +128,7 @@ public class RightPanel extends JPanel {
 
 		for (Shapes s : rightPanelShapes) {
 			s.drawShape(graphics);
+			//CompileFile.setTrackShapes(s,1);
 		}
 
 		for (Connections l : lines) {
