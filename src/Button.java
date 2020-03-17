@@ -7,7 +7,8 @@ import java.io.File;
 public class Button {
     public void addButtonsToLeftPanel(LeftPanel panel){
 
-        JButton openButton = new JButton("(",new ImageIcon(""));
+
+        JButton openButton = new JButton(new ImageIcon("src/ImageFiles/openbracket.jpg"));
         openButton.setPreferredSize(new Dimension(200,100));
         openButton.setFont(new Font("Arial", Font.PLAIN, 30));
         openButton.addActionListener(new ActionListener() {
@@ -20,7 +21,7 @@ public class Button {
         });
         panel.add(openButton);
 
-        JButton closeButton = new JButton(")",new ImageIcon(""));
+        JButton closeButton = new JButton(new ImageIcon("src/ImageFiles/closebracket.jpg"));
         closeButton.setPreferredSize(new Dimension(200,100));
         closeButton.setFont(new Font("Arial", Font.PLAIN, 30));
         closeButton.addActionListener(new ActionListener() {
@@ -33,7 +34,7 @@ public class Button {
         });
         panel.add(closeButton);
 
-        JButton lessThanButton = new JButton("<",new ImageIcon(""));
+        JButton lessThanButton = new JButton(new ImageIcon("src/ImageFiles/lessthan.jpg"));
         lessThanButton.setPreferredSize(new Dimension(200,100));
         lessThanButton.setFont(new Font("Arial", Font.PLAIN, 30));
         lessThanButton.addActionListener(new ActionListener() {
@@ -46,7 +47,7 @@ public class Button {
         });
         panel.add(lessThanButton);
 
-        JButton greaterThanButton = new JButton(">",new ImageIcon(""));
+        JButton greaterThanButton = new JButton(new ImageIcon("src/ImageFiles/greaterthan.jpg"));
         greaterThanButton.setPreferredSize(new Dimension(200,100));
         greaterThanButton.setFont(new Font("Arial", Font.PLAIN, 30));
         greaterThanButton.addActionListener(new ActionListener() {
@@ -59,7 +60,8 @@ public class Button {
         });
         panel.add(greaterThanButton);
 
-        JButton atTheRateButton = new JButton("@",new ImageIcon(""));
+//        JButton atTheRateButton = new JButton("@",new ImageIcon("src/ImageFiles/attherate.jpg"));
+        JButton atTheRateButton = new JButton(new ImageIcon("src/ImageFiles/attherate.jpg"));
         atTheRateButton.setPreferredSize(new Dimension(200,100));
         atTheRateButton.setFont(new Font("Arial", Font.PLAIN, 30));
         atTheRateButton.addActionListener(new ActionListener() {
@@ -72,7 +74,7 @@ public class Button {
         });
         panel.add(atTheRateButton);
 
-        JButton twoBarButton = new JButton("| |",new ImageIcon(""));
+        JButton twoBarButton = new JButton(new ImageIcon("src/ImageFiles/twobars.jpg"));
         twoBarButton.setPreferredSize(new Dimension(200,100));
         twoBarButton.setFont(new Font("Arial", Font.PLAIN, 30));
         twoBarButton.addActionListener(new ActionListener() {
@@ -85,7 +87,7 @@ public class Button {
         });
         panel.add(twoBarButton);
 
-        JButton hypenButton = new JButton("-",new ImageIcon(""));
+        JButton hypenButton = new JButton(new ImageIcon("src/ImageFiles/hyphen.jpg"));
         hypenButton.setPreferredSize(new Dimension(200,100));
         hypenButton.setFont(new Font("Arial", Font.PLAIN, 30));
         hypenButton.addActionListener(new ActionListener() {
